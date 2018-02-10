@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bouffe | About</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Comptible" content="IE=edge">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<!-- Sidebar holder -->
+		<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3>Bouffe</h3>
+					<strong>B</strong>
+				</div>
+				<ul class="list-unstyled components">
+					<li>
+						<a href="tableFeed.html">
+							<i class="glyphicon glyphicon-home"></i>
+							Tables
+						</a>
+					</li>
+					<li>
+						<a href="#menuSubmenu" data-toggle="collapse" aria-expanded="false">
+							<i class="glyphicon glyphicon-briefcase"></i>
+							Menu
+						</a>
+						<ul class="collapse list-unstyled" id="menuSubmenu">
+							<li><a href="maincourse.html">Main Course</a></li>
+							<li><a href="#">Dessert</a></li>
+							<li><a href="#">Drinks</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="glyphicon glyphicon-briefcase"></i>
+							Contact Admin
+						</a>
+					</li>
+					<li>
+						<a href="addAbout.html">
+							<i class="glyphicon glyphicon-briefcase"></i>
+							About
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="glyphicon glyphicon-duplicate"></i>
+							Logout
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+        <!-- Page Content Holder -->
+		<div id="content">
+			<span id="sidebarCollapse"><i class="glyphicon glyphicon-align-justify"></i></span>
+			<div class="panel panel-primary" id="panel">
+				<div class="panel-heading">
+			    	<h3 class="panel-title">Tell us more about your restaurant</h3>
+			  	</div>
+			  	<div class="panel-body">
+			    	<form>
+			    		<label>Restaurant Name:</label><br>
+			    		<input class="form-control" type="text" name="name"><br>
+			    		<label>Description:</label><br>
+			    		<input class="form-control" type="text" name="description"><br>
+			    		<label>Location:</label><br>
+			    		<input class="form-control" type="text" name="address"><br>
+			    		<label>Image:</label>
+			    		<input type="file" onchange="readURL(this);">
+            			<img src="#" id="blah" alt="your image"><br><br>
+            			<button class="btn btn-primary">Submit</button>
+			    	</form>
+			  	</div>
+			</div>
+        </div>
+	</div>
+</body>
+</html>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#sidebarCollapse").on("click", function(){
+			$("#sidebar").toggleClass("active");
+		});
+	});
+
+	function readURL(input){
+		if(input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$("#blah").attr("src", e.target.result).width(800).height(400);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
